@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+        <title>Express Update</title>
+        <link rel="stylesheet" href="{% static 'newsapp/css/stylebase.css' %}">
+    </head>
+    <body>
+        <header id="Title">
+            <div class="header-content">
+                <div class="left-section">
+                    <span class="title-text">Express Update</span>
+                </div>
+                <div class="center-section">
+                    <input type="text" id="search-input" placeholder="Search a Keyword">
+                    <div>
+                        <button id="ChangeMode">🌑</button>
+                    </div>
+                </div>
+                <div class="right-section">
+                    <div id="userbutton">
+                        <button>👤</button> <!-- Using an icon for the user button -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+        <main-content>
+            <div class = "article-sec">
+                {% block content1%}
+                {% endblock %}
+            </div>
+        </main-content>
+        <script src=" {% static 'newsapp/js/script.js' %} "></script>
+    </body>
+</html>

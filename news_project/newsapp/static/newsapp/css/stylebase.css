@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    background-color: rgb(145, 142, 142);
+    transition: background-color 0.5s ease;
+}
+
+#Title {
+    background-color: rgb(99, 3, 3);
+    color: bisque;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    font-style: italic;
+}
+
+.header-content {
+    padding: 15px 10px 80px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    margin-right: 60px; /* Space between title and search bar */
+}
+
+.title-text {
+    font-size: 50px;
+    font-style: Georgia;
+}
+
+.center-section {
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    color: rgb(0, 0, 0);
+    background-color: gainsboro;
+    font-size: large;
+    width: 500px;
+    padding: 15px 10px 15px 20px;
+    border-radius: 14px;
+    border-right: none;
+    margin-right: 60px; /* Space between search bar and change mode button */
+}
+
+#ChangeMode {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: large;
+    border-radius: 14px;
+    background-color: bisque; /* Contrasting color */
+    color: rgb(99, 3, 3);
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    margin-left: 60px; /* Space between change mode button and user button */
+}
+
+#userbutton {
+    display: inline-block;
+}
+
+#userbutton button {
+    font-size: large;
+    padding: 10px 20px; /* Adjusted padding to make the button larger */
+    border-radius: 50%;
+    background-color: bisque; /* Contrasting color */
+    color: rgb(99, 3, 3);
+    border: none;
+    cursor: pointer;
+    width: 50px; /* Increased width */
+    height: 50px; /* Increased height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.articles-container {
+    background-color: rgb(172, 174, 173);
+    color: white;
+    padding: 10px 30px;
+}
+
+.content-header {
+    color: rgb(99, 3, 3);
+    font-style: Georgia;
+    font-size: xx-large;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.article {
+    display: flex;
+    align-items: flex-start;
+    background-color: rgb(103, 39, 39);
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#author{
+    font-style: italic;
+}
+
+.article-image img {
+    max-width: 100%; /* Ensure images fit within their container rgb(157, 153, 148);*/
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Prevents inline spacing issues */
+    border-radius: 10px; /* Rounded corners for images */
+    margin-top: 10px; /* Space between image and article content */
+}
+
+.article-sec {
+    margin: 40px;
+    padding: 50px 10px 100% 10px;
+}
+
+
+content-header{
+    font-size: x-large;
+    background-color: rgb(172, 174, 173);
+    color: white;
+    margin-left: 60px;
+    margin-right: 30px;
+    padding: 10px 30% 100% 20px;
+    border-bottom: 2px solid black;
+}
