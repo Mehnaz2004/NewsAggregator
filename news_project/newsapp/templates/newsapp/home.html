@@ -1,0 +1,24 @@
+{% extends "newsapp/base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>Express Update</title>
+</head>
+<body>
+    <header id="Title">
+        {% block content %}
+        {% endblock %}
+    </header>
+    <main-content>
+        <div class="article-sec">
+            {% block content1 %}
+            <content-header id="Top-Stories">Top Stories
+            </content-header>
+            <content-header id="For-you">For You
+            </content-header>
+            {% endblock %}
+        </div>
+    </main-content>
+</body>
+</html>
