@@ -1,4 +1,3 @@
-
 from django.shortcuts import render
 import requests
 from .scrapper import article_scrapper
@@ -19,7 +18,7 @@ def top_stories_view(request):
         'top_stories': top_stories,
     })
 
-def for_you_view(request):
+def local_news_view(request):
     base_url = "https://news.google.com/"
     url = "https://news.google.com/topics/CAAqHAgKIhZDQklTQ2pvSWJHOWpZV3hmZGpJb0FBUAE/sections/CAQiUENCSVNOam9JYkc5allXeGZkakpDRUd4dlkyRnNYM1l5WDNObFkzUnBiMjV5Q3hJSkwyMHZNREUyYlhBNWVnc0tDUzl0THpBeE5tMXdPU2dBKjEIACotCAoiJ0NCSVNGem9JYkc5allXeGZkako2Q3dvSkwyMHZNREUyYlhBNUtBQVABUAE?hl=en-IN&gl=IN&ceid=IN%3Aen"
 
@@ -27,12 +26,29 @@ def for_you_view(request):
     articles_data = article_scrapper(url, base_url)
 
     if articles_data:
-        for_you = articles_data  # This can be filtered or sliced as needed
+        local_news = articles_data  # This can be filtered or sliced as needed
     else:
-        for_you = []
+        local_news = []
 
-    return render(request, 'newsapp/foryou.html', {'for_you': for_you,})
+    return render(request, 'newsapp/localnews.html', {'local_news': local_news,})
     
 
 def home(request):
-    return render(request, 'newsapp\home.html')
+    topurl = "https://news.google.com/topics/CAAqKggKIiRDQkFTRlFvSUwyMHZNRFZxYUdjU0JXVnVMVWRDR2dKSlRpZ0FQAQ?hl=en-IN&gl=IN&ceid=IN%3Aen" 
+    localurl = "https://news.google.com/topics/CAAqHAgKIhZDQklTQ2pvSWJHOWpZV3hmZGpJb0FBUAE/sections/CAQiUENCSVNOam9JYkc5allXeGZkakpDRUd4dlkyRnNYM1l5WDNObFkzUnBiMjV5Q3hJSkwyMHZNREUyYlhBNWVnc0tDUzl0THpBeE5tMXdPU2dBKjEIACotCAoiJ0NCSVNGem9JYkc5allXeGZkako2Q3dvSkwyMHZNREUyYlhBNUtBQVABUAE?hl=en-IN&gl=IN&ceid=IN%3Aen"
+    base_url = "https://news.google.com/"
+    
+    top_articles = article_scrapper(topurl, base_url)
+    local_articles = article_scrapper(localurl, base_url)
+    
+    if top_articles and local_articles:
+        top5_articles = top_articles[:5]
+        local5_articles = local_articles[:5]
+    else:
+        top5_articles = []
+        local5_articles = []
+    context = {
+        'top5_articles': top5_articles,
+        'local5_articles': local5_articles
+    }
+    return render(request, 'newsapp/home.html', context)

@@ -10,7 +10,10 @@
         {% block content %}
         <div class="article-sec">
             <div class="articles-container">
-                <div class="content-header" id="Top-Stories">⬅Top Stories</div>
+                <div class="content-header" id="Top-Stories">
+                    <button class="back-button" onclick="history.back()">←</button>
+                    <h1 class="page-title">Top Stories</h1>
+                </div>
                 {% for article in top_stories %}
                 <div class="article">
                     <div>
@@ -19,12 +22,6 @@
                         <p id="author">{{ article.Author }}</p>
                         <p id="time">- {{ article.Timestamp }}</p>
                     </div>
-                    {% if article.ImageSource %}
-                        <!-- Display image if available -->
-                        <div class="article-image">
-                            <img src="{{ article.ImageSource }}" alt="Article Image">
-                        </div>
-                    {% endif %}
                 </div>
                 {% endfor %}
             </div>

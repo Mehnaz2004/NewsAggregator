@@ -1,24 +1,39 @@
 {% extends "newsapp/base.html" %}
-<!DOCTYPE html>
-<html>
-<head>
-    {% load static %}
-    <title>Express Update</title>
-</head>
+{% load static %}
 <body>
-    <header id="Title">
+    <main>
         {% block content %}
-        {% endblock %}
-    </header>
-    <main-content>
-        <div class="article-sec">
-            {% block content1 %}
-            <content-header id="Top-Stories">Top Stories
-            </content-header>
-            <content-header id="For-you">For You
-            </content-header>
-            {% endblock %}
+        <div class= "article-sec">
+            <div class="articles-container"id="Top-Stories">
+                <div class="content-header">
+                    <a class="Homeheader" href="http://127.0.0.1:8000/top-stories/">Top Stories</a>
+                </div>
+                {% for article in top5_articles %}
+                <div class="article">
+                    <div>
+                        <p>{{ article.Headline }}</p>
+                        <a href="{{ article.Link }}">Click here for full article</a>
+                        <p id="author">{{ article.Author }}</p>
+                        <p id="time">- {{ article.Timestamp }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="articles-container" id="Local News">
+                <div class="content-header">
+                    <a class="Homeheader" href="http://127.0.0.1:8000/local-news/">Local News</a>
+                </div>
+                {% for article in local5_articles %}
+                <div class="article">
+                    <div>
+                        <p>{{ article.Headline }}</p>
+                        <a href="{{ article.Link }}">Click here for full article</a>
+                        <p id="author">{{ article.Author }}</p>
+                        <p id="time">- {{ article.Timestamp }}</p>
+                    </div>
+                </div>
+                {% endfor %}
         </div>
-    </main-content>
+        {% endblock %}
+    </main>
 </body>
-</html>
